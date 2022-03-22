@@ -20,7 +20,7 @@ cons_user.get("/admins", [auth, autoris], async (req, res) => {
 })
 
 //get all normal users
-cons_user.get("/users",async(req,res)=>{
+cons_user.get("/users",[auth, autoris],async(req,res)=>{
     try {
         res.send(await User.find({
             role: "user"
