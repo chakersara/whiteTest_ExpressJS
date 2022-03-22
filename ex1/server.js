@@ -16,9 +16,9 @@ const app=express()
 app.use(express.json())
 app.use(cookieParser())
 
-app.use("/wt",wt_router)
+app.use("/wt",auth,wt_router)
 app.use('/user',auth,user_router)
-app.use("/list_user",cons_user_router)
+app.use("/list_user",auth,cons_user_router)
 
 app.get("/",(req,res)=>{
     res.send("WEB API réalisé par Sarra Chaker GLSI-B et Chaima Arfaoui GLSI-A\nBienvenue!")
